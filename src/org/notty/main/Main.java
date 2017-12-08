@@ -1,23 +1,20 @@
 package org.notty.main;
 
+import java.awt.BorderLayout;
+import java.awt.Dimension;
 import java.awt.EventQueue;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
-import javax.swing.JTextArea;
-import java.awt.BorderLayout;
-import java.awt.Dimension;
-
-import javax.swing.JMenuBar;
 import javax.swing.JMenu;
+import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
-import java.awt.event.*;
-//import java.io.File;
-//import java.io.IOException;
-
 import javax.swing.JScrollPane;
-import javax.swing.ScrollPaneConstants;
+import javax.swing.JTextArea;
 
+import org.notty.APPDATA;
 import org.notty.io.FileIO;
 
 public class Main {
@@ -25,10 +22,6 @@ public class Main {
 	private JFrame frmNpad;
 	private FileIO fIO = new FileIO();
 	private JFileChooser chooser = new JFileChooser();
-
-	/**
-	 * Launch the application.
-	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -41,20 +34,12 @@ public class Main {
 			}
 		});
 	}
-
-	/**
-	 * Create the application.
-	 */
 	public Main() {
 		initialize();
 	}
-
-	/**
-	 * Initialize the contents of the frame.
-	 */
 	private void initialize() {
 		frmNpad = new JFrame();
-		frmNpad.setTitle("NPad");
+		frmNpad.setTitle("Notty");
 		frmNpad.setBounds(100, 100, 450, 300);
 		frmNpad.setMinimumSize(new Dimension(500,500));
 		frmNpad.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -67,7 +52,6 @@ public class Main {
 		mnBar.add(mnFile);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 		frmNpad.getContentPane().add(scrollPane);
 		
 		JTextArea mainTextArea = new JTextArea();

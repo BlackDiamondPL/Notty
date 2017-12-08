@@ -1,4 +1,4 @@
-package org.notty.main;
+package org.notty;
 
 import java.io.File;
 import java.util.ArrayList;
