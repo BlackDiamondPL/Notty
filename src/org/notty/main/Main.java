@@ -15,11 +15,11 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
 import org.notty.APPDATA;
-import org.notty.io.FileIO;
+import org.notty.FileIO;
 
 public class Main {
 
-	private JFrame frmNpad;
+	private JFrame frmNotty;
 	private FileIO fIO = new FileIO();
 	private JFileChooser chooser = new JFileChooser();
 	public static void main(String[] args) {
@@ -27,7 +27,7 @@ public class Main {
 			public void run() {
 				try {
 					Main window = new Main();
-					window.frmNpad.setVisible(true);
+					window.frmNotty.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -38,21 +38,21 @@ public class Main {
 		initialize();
 	}
 	private void initialize() {
-		frmNpad = new JFrame();
-		frmNpad.setTitle("Notty");
-		frmNpad.setBounds(100, 100, 450, 300);
-		frmNpad.setMinimumSize(new Dimension(500,500));
-		frmNpad.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frmNpad.getContentPane().setLayout(new BorderLayout(0, 0));
+		frmNotty = new JFrame();
+		frmNotty.setTitle("Notty");
+		frmNotty.setBounds(100, 100, 450, 300);
+		frmNotty.setMinimumSize(new Dimension(500,500));
+		frmNotty.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmNotty.getContentPane().setLayout(new BorderLayout(0, 0));
 		
 		JMenuBar mnBar = new JMenuBar();
-		frmNpad.setJMenuBar(mnBar);
+		frmNotty.setJMenuBar(mnBar);
 		
 		JMenu mnFile = new JMenu("File");
 		mnBar.add(mnFile);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		frmNpad.getContentPane().add(scrollPane);
+		frmNotty.getContentPane().add(scrollPane);
 		
 		JTextArea mainTextArea = new JTextArea();
 		mainTextArea.setWrapStyleWord(true);
@@ -66,7 +66,7 @@ public class Main {
 				APPDATA.opnFile = chooser.getSelectedFile();
 				chooser.setCurrentDirectory(APPDATA.opnFile.getParentFile());
 				APPDATA.currentFile= APPDATA.opnFile.getAbsolutePath();
-				frmNpad.setTitle("NPad - "+APPDATA.currentFile);
+				frmNotty.setTitle("NPad - "+APPDATA.currentFile);
 				fIO.writeFile(APPDATA.opnFile, mainTextArea.getText());
 			}
 		});
@@ -86,7 +86,7 @@ public class Main {
 						mainTextArea.append(APPDATA.currentFileCtn.get(i));
 						mainTextArea.append("\n");
 					}
-					frmNpad.setTitle("NPad - "+APPDATA.currentFile);
+					frmNotty.setTitle("NPad - "+APPDATA.currentFile);
 				}
 				APPDATA.currentFileCtn = null;
 			}

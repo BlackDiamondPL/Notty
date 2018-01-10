@@ -1,7 +1,6 @@
-package org.notty.io;
+package org.notty;
 
 import java.io.BufferedReader;
-//import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -15,7 +14,6 @@ public class FileIO {
 	private FileInputStream flIn;
 	private InputStreamReader inStream;
 	private BufferedReader flBufferIn;
-	//private BufferedWriter flBufferOut;
 	
 	public ArrayList<String> readFile(String file) {
 		ArrayList<String>data = new ArrayList<String>();
@@ -36,6 +34,7 @@ public class FileIO {
 			System.out.println(IOExce.getMessage());
 			IOExce.printStackTrace();
 		}
+		
 		return(data);
 	}
 	
