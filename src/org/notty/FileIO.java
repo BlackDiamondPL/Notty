@@ -11,16 +11,13 @@ import java.util.ArrayList;
 
 public class FileIO {
 	private FileWriter flOut;
-	private FileInputStream flIn;
-	private InputStreamReader inStream;
 	private BufferedReader flBufferIn;
 	
 	public ArrayList<String> readFile(String file) {
-		ArrayList<String>data = new ArrayList<String>();
+		ArrayList<String>data = new ArrayList<>();
 		try {
-			flIn = new FileInputStream(file);
-			inStream = new InputStreamReader(flIn);
-			flBufferIn = new BufferedReader(inStream);
+			flBufferIn = new BufferedReader(new InputStreamReader(
+                                new FileInputStream(file)));
 			String dataline = flBufferIn.readLine();
 			while(dataline!=null) {
 				data.add(dataline);
