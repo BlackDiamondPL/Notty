@@ -1,6 +1,7 @@
 package org.notty;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -10,8 +11,8 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 
 public class FileIO {
-	private FileWriter flOut;
 	private BufferedReader flBufferIn;
+        private BufferedWriter flBufferOut;
 	
 	public ArrayList<String> readFile(String file) {
 		ArrayList<String>data = new ArrayList<>();
@@ -40,9 +41,9 @@ public class FileIO {
 			if(!svFile.exists()) {
 				svFile.createNewFile();
 			}
-			flOut = new FileWriter(svFile);
-			flOut.write(saveCtn);
-			flOut.close();
+			flBufferOut = new BufferedWriter(new FileWriter(svFile));
+			flBufferOut.write(saveCtn);
+			flBufferOut.close();
 		}catch(IOException IOExce) {
 			System.out.println(IOExce.getMessage());
 			IOExce.printStackTrace();
